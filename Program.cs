@@ -9,10 +9,27 @@
 // 4. Последовательно заполнить второй массив найденными строками.
 // 5. Удалить пустые элементы второго массива.
 
+string[] FillArray(string[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        System.Console.Write($"{i+1}. ");
+        array[i] = EnterData("Введите текст: ");
+    }
+    return array;
+}
+
+string EnterData(string text)
+{
+    Console.Write(text);
+    string str = Console.ReadLine();
+    return str;
+}
 
 int num = 10;
 string[] firstArray = new string[num];
 string[] secondArray = new string[num];
 FillArray(firstArray);
-SearchElems(firstArray, secondArray);
-DeleteEmptyElems();
+Console.WriteLine($"[{string.Join(", ", firstArray)}]");
+// SearchElems(firstArray, secondArray);
+// DeleteEmptyElems();
