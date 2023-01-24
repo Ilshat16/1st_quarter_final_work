@@ -3,11 +3,6 @@
 // либо задать на старте выполнения алгоритма. При решении не рекомендуется пользоваться коллекциями, 
 // лучше обойтись исключительно массивами.
 
-// 1. Создать массив из num элементов. Назовем его firstArray
-// 2. Заполнить массив firstArray строками, пусть будет, с клавиатуры.
-// 3. Посчитать количество элементов массива, состоящих из 3 или меньше символов.
-// 4. Создать второй массив и заполнить элементами из первого массива, состоящих из 3 или меньше символов.
-
 string[] FillSecondArray(string[] firstArray, int count)
 {
     string[] secondArray = new string[count];
@@ -53,8 +48,12 @@ string EnterData(string text)
 int num = 10;
 string[] firstArray = new string[num];
 FillArray(firstArray);
-int count = SearchElemsCount(firstArray);
-string[] secondArray = FillSecondArray(firstArray, count);
 Console.WriteLine();
-Console.WriteLine("Массив из введенных строк, состоящих из 3 и менее символов:");
-Console.WriteLine($"[{string.Join(", ", secondArray)}]");
+int count = SearchElemsCount(firstArray);
+if (count == 0) Console.WriteLine("Все введенные строки состоят из более трёх символов");
+else
+{
+    string[] secondArray = FillSecondArray(firstArray, count);
+    Console.WriteLine("Массив из введенных строк, состоящих из 3 и менее символов:");
+    Console.WriteLine($"[{string.Join(", ", secondArray)}]");
+}
